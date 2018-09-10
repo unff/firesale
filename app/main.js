@@ -10,13 +10,13 @@ app.on('ready', () => {
 
 app.on('window-all-closed', () => {
     if(process.platform === 'darwin') {
-        return false
+        return false // Macs don't close the app when the windows are all closed.
     }
     app.quit()
 })
 
 app.on('activate', (event, hasVisibleWindows) => {
-    if (!hasVisibleWindows) { createWindow() }
+    if (!hasVisibleWindows) { createWindow() } // Other half of the Mac no-close behavior
 })
 
 const createWindow = exports.createWindow = () => {
