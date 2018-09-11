@@ -40,6 +40,9 @@ const createWindow = exports.createWindow = () => {
         windows.delete(newWindow)
         newWindow = null
     })
+
+    windows.add(newWindow)
+    return newWindow
 }
 
 const getFileFromUser = exports.getFileFromUser = (targetWindow) => { // exported so that a renderer process can use it
